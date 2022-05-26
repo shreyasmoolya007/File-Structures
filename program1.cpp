@@ -5,6 +5,7 @@ class program1
 {
     private:char a[10][20];
     public: void std_io();
+    public: void file_io();
 };
 void program1 :: std_io()
 {
@@ -21,8 +22,26 @@ void program1 :: std_io()
         cout<<s1<<"\n";
     }
 }
+
+void program1 :: file_io()
+{
+    fstream f1;
+    string ch;
+    char input[10];
+    cout<<"Enter the Filename\n";
+    cin>>input;
+    f1.open(input,ios::in);
+    while(1)
+    {
+        f1>>ch;
+        reverse(ch.begin(),ch.end());
+        if(f1.fail()) break;
+        cout<<ch<<"\n";
+    }
+}
 int main()
 {
     program1 x;
-    x.std_io();
+    //x.std_io();
+    x.file_io();
 }
